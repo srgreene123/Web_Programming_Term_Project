@@ -2,26 +2,69 @@ body {
 	font-family: copperplate, fantasy;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	margin: 0px;
 	background-color: #F8F3E1;
 	position: absolute;
+	overflow-x: hidden;
+	padding-bottom: 600px;
 }
 
-h1 {
-	text-align: left;
+#navbar_div {
+	position: fixed;
+	top: 0;
+	list-style-type: none;
+	width: 100.45%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	background-color: #333;
+	position: relative;
+	bottom: 21px;
+	position: sticky;
+	text-align: center;
+}
+
+#navbar_div li {
+	display: inline-block;
+}
+
+#navbar_div li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px 18px;
+	text-decoration: none;
+}
+
+#navbar_div li a:hover:not(.active) {
+	background-color: #111;
+}
+
+#navbar_div .active {
+	background-color: #ffae00;
+}
+
+#background_img1 h1 {
+	text-align: center;
+	color: #ffae00;
+	width: 100%;
 	margin-top: 0px;
 	padding: 0px;
+	font-size: 90px;
+	position: relative;
+	top: 10px;
 }
 
 #background_img1 {
 	background-image: url("coffeebeans.jpg");
 	background-size: auto;
-  	width: 100%;
-  	height: 150px;
-  	border: 2px solid;
-  	padding-left: 5px;
-  	background-repeat: no-repeat;
-  	background-size: cover;
+	width: 100%;
+	height: 140px;
+	border: 2px solid;
+	padding-left: 5px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-color: black;
 }
 
 img {
@@ -49,9 +92,74 @@ img {
 	margin: 5px;
 }
 
-#footer {
-	position: absolute;
+#cart h2 {
 	text-align: center;
+}
+
+#cart table, td, th {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 16px 18px;
+	text-align: center;
+}
+
+#cart table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#cart th {
+	background-color: #333;
+	color: white;
+}
+
+#cart tr:nth-child(even) {
+	background-color: #ffe0c5;
+}
+
+#cart form {
+	text-align: center;
+}
+
+#checkout form {
+	text-align: center;
+}
+
+input[type=text] {
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+
+.together {
+	display: inline-block;
+}
+
+.clear {
+	clear: both;
+}
+
+#fulllength input {
+	width: 22.7%;
+}
+
+.checkout {
+	font-size: 24px;
+	font-family: copperplate, fantasy;
+	background-color: #8f5a2c;
+	color: #F8F3E1;
+	border-radius: 6px;
+	border-width: 2px;
+	border-color: black;
+	margin: 5px;
+	margin-top: 20px;
+}
+
+#footer {
+	position: fixed;
+	background-color: #333;
+	color: #fff;
+	width: 100%;
 	bottom: 0;
-    width: 100%;
+	text-align: center;
 }
