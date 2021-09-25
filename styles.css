@@ -6,6 +6,9 @@ body {
 	background-color: #F8F3E1;
 	position: absolute;
 	overflow-x: hidden;
+}
+
+#checkoutbody {
 	padding-bottom: 600px;
 }
 
