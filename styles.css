@@ -5,6 +5,8 @@ body {
 	background-color: #F8F3E1;
 	position: absolute;
 	overflow-x: hidden;
+	min-width: 389px;
+	min-height: 531px;
 }
 
 #checkoutbody {
@@ -195,6 +197,7 @@ input[type=text] {
 
 .left {
   width: 25%;
+  padding-bottom: 25px;
 }
 
 .right {
@@ -233,8 +236,13 @@ input[type=text] {
 .textbox {
   float: left;
   width: 33.33%;
-  padding: 5px;
+  display: block;
+  margin: auto;
+  
 }
+
+
+
 
 .pics::after {
   content: "";
@@ -242,13 +250,37 @@ input[type=text] {
   display: table;
 }
 
-figcaption {
+figure figcaption {
+	border: 1px solid black;
 	text-align: center;
-	padding-right: 100px;
 }
 
 #demo11 {
 	  padding-bottom: 25px;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.column.left {
+	position: fixed;
+	top: 50px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	bottom: 21px;
+	position: sticky;
+	text-align: left;
+	border: 3px solid black;
+}
+
+figure img{
+	border: 3px dotted orange;
+	margin: auto;
+	display: block;
+}
 
