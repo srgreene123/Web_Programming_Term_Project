@@ -157,6 +157,22 @@ input[type=text] {
 	margin-top: 20px;
 }
 
+.column .right .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 200px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+
+}
+
+ .column .right .search-container {
+  float: right;
+}
+
 #footer {
 	position: fixed;
 	background-color: #333;
@@ -165,3 +181,74 @@ input[type=text] {
 	bottom: 0;
 	text-align: center;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  background-color: #ffae00;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left h2 {
+	text-align: center;
+	font-size: 200%;
+}
+
+.right h2 {
+	text-align: center;
+	font-size: 200%;
+}
+
+.right input[type=text] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+}
+
+
+
+
+.textbox {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.pics::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+figcaption {
+	text-align: center;
+	padding-right: 100px;
+}
+
+#demo11 {
+	  padding-bottom: 25px;
+}
+
+
