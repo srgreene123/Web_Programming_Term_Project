@@ -12,11 +12,11 @@
 	}
 
 	if (isset($_POST["submit"])) {
-		$uname = $_POST["uname"];
-		$password = $_POST["password"];
-		$check = $_POST["check"];
+		$uname = $_POST["uname"] ?? '';
+		$password = $_POST["password"] ?? '';
+		$check = $_POST["check"] ?? '';
 	} else {
-		include('login_page.php');
+		include('login_page.html');
 	}
 
 	$query = "SELECT * FROM users WHERE username='$uname' AND password='$password'";
@@ -26,10 +26,10 @@
 	if($row_count > 0) {
 		if($check=='1') {
 			setcookie("mycookie", TRUE, time()+6);
-			include('home_page.html');
-		} else {
-			include('error.html');
 		}
+		include('home_page.html');
+	} else {
+		include('error.html');
 	}
 
 	$conn->close();
