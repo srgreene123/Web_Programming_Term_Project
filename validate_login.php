@@ -11,6 +11,8 @@
 	  die("Connection failed: " . $conn->connect_error);
 	}
 
+	$loginst = 1;
+
 	if (isset($_POST["submit"])) {
 		$uname = $_POST["uname"] ?? '';
 		$password = $_POST["password"] ?? '';
@@ -27,7 +29,8 @@
 		if($check=='1') {
 			setcookie("mycookie", TRUE, time()+6);
 		}
-		include('home_page.html');
+		$loginst = 0;
+		include('home_page.php');
 	} else {
 		include('error.html');
 	}

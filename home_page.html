@@ -11,16 +11,27 @@
 	<div id="background_img1">
 		<h1>Java Zone</h1>
 	</div>
-	<ul id="navbar_div">
-		<li><a class="active" href="home_page.html">Home</a></li>
-		<li><a href="drinks_page.html">Drinks</a></li>
-		<li><a href="foods_page.html">Foods</a></li>
-		<li><a href="cart_page.html">Cart</a></li>
-		<li><a href="checkout_page.html">Checkout</a></li>
-		<li><a href="login_page.html">Login</a></li>
-	</ul>
+	<?php if($loginst == 1) { ?>
+		<ul id="navbar_div">
+			<li><a class="active" href="home_page.php">Home</a></li>
+			<li><a href="drinks_page.html">Drinks</a></li>
+			<li><a href="foods_page.html">Foods</a></li>
+			<li><a href="cart_page.html">Cart</a></li>
+			<li><a href="checkout_page.html">Checkout</a></li>
+			<li><a href="login_page.html">Login</a></li>
+		</ul>
+	<?php } else { ?>
+		<ul id="navbar_div">
+			<li><a class="active" href="home_page.php">Home</a></li>
+			<li><a href="drinks_page.html">Drinks</a></li>
+			<li><a href="foods_page.html">Foods</a></li>
+			<li><a href="cart_page.html">Cart</a></li>
+			<li><a href="checkout_page.html">Checkout</a></li>
+			<li><a href="login_page.html">Logout</a></li>
+		</ul>
+	<?php } ?>
 	<div id='images_div'>
-		<img src='first_image_home.jpg' alt'Middle of website'>
+		<img src='first_image_home.jpg' alt='Middle of website'>
 		<img src='second_image_home.jpg'>
 		<img src='third_image_home.jpg'>
 	</div>
@@ -34,5 +45,8 @@
 		<p>&copy; Java Zone Shop</p>
 	</footer>
 </body>
+
+
+
 
 </html>
