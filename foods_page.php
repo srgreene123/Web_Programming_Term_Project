@@ -29,11 +29,11 @@
 		<h1>Java Zone</h1>
 	</div>
 	<ul id="navbar_div">
-		<li><a href="home_page.html">Home</a></li>
+		<li><a href="home_page.php">Home</a></li>
 		<li><a href="drinks_page.php">Drinks</a></li>
         <li><a class="active" href="foods_page.php">Foods</a></li>
         <li><a href="cart_page.html">Cart</a></li>
-		<li><a href="checkout_page.html">Checkout</a></li>
+		<li><a href="checkout_page.php">Checkout</a></li>
 		<li><a href="login_page.html">Login</a></li>
 	</ul>
 	<div class="row">
