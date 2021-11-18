@@ -284,3 +284,24 @@ figure img{
 	display: block;
 }
 
+/* @media screen and (max-width: 600px) {.column { width: 100%;} } to adjust a minimum size for the foods and drinks. Need to implement */
+
+.loginColumn {
+	float: left;
+	padding: 10px;
+	height: 300px;
+}
+
+.loginLeft {
+	width: 50%;
+}
+
+.loginRight {
+	width: 50%;
+}
+
+.loginRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
