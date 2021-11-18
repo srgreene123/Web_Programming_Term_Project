@@ -60,7 +60,7 @@ body {
 }
 
 #background_img1 {
-	background-image: url("coffeebeans.jpg");
+	background-image: url("../images/coffeebeans.jpg");
 	background-size: auto;
 	width: 100%;
 	height: 140px;

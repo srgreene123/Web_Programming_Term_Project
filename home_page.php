@@ -1,17 +1,19 @@
+<?php include_once('session_header.php'); ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>Home Page</title>
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/normalize.css">
 </head>
 
 <body>
 	<div id="background_img1">
 		<h1>Java Zone</h1>
 	</div>
-	<?php if($loginst == 1) { ?>
+	<?php if($_SESSION['loginst'] == 0) { ?>
 		<ul id="navbar_div">
 			<li><a class="active" href="home_page.php">Home</a></li>
 			<li><a href="drinks_page.php">Drinks</a></li>
@@ -27,13 +29,13 @@
 			<li><a href="foods_page.php">Foods</a></li>
 			<li><a href="cart_page.php">Cart</a></li>
 			<li><a href="checkout_page.php">Checkout</a></li>
-			<li><a href="login_page.php">Logout</a></li>
+			<li><a href="logout_page.php">Logout</a></li>
 		</ul>
-	<?php } ?>
+	<?php }; ?>
 	<div id='images_div'>
-		<img src='first_image_home.jpg' alt='Middle of website'>
-		<img src='second_image_home.jpg'>
-		<img src='third_image_home.jpg'>
+		<img src='images/first_image_home.jpg' alt='Middle of website'>
+		<img src='images/second_image_home.jpg'>
+		<img src='images/third_image_home.jpg'>
 	</div>
 	<div id='menu_div'>
 		<form action="redirection_page.php" method="post">

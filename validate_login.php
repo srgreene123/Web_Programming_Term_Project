@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -11,7 +13,7 @@
 	  die("Connection failed: " . $conn->connect_error);
 	}
 
-	$loginst = 1;
+	$_SESSION['loginst'] = 0;
 
 	if (isset($_POST["submit"])) {
 		$uname = $_POST["uname"] ?? '';
@@ -29,11 +31,10 @@
 		if($check=='1') {
 			setcookie("mycookie", TRUE, time()+6);
 		}
-		$loginst = 0;
+		$_SESSION['loginst'] = 1;
 		include('home_page.php');
 	} else {
 		include('error.html');
+		$conn->close();
 	}
-
-	$conn->close();
 ?>
