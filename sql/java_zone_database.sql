@@ -3,14 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2021 at 03:19 AM
+-- Generation Time: Nov 17, 2021 at 11:21 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +30,8 @@ CREATE TABLE `cart` (
   `cartID` int(11) NOT NULL,
   `orderID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `total` double NOT NULL
+  `total` double NOT NULL,
+  `productID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,10 +42,11 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `order_summary` (
   `orderID` int(11) NOT NULL,
-  `paymentStatus` varchar(11) NOT NULL,
+  `paymentStatus` varchar(256) NOT NULL,
   `grandTotal` double NOT NULL,
   `userID` int(11) NOT NULL,
-  `promoCodeID` varchar(11) NOT NULL
+  `promoCodeID` varchar(11) NOT NULL,
+  `address` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -62,6 +63,29 @@ CREATE TABLE `products` (
   `type` varchar(11) NOT NULL,
   `image` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`productID`, `name`, `quantity`, `price`, `type`, `image`) VALUES
+(1, 'Blueberry Muffin', 5, 2.75, 'food', 'images/BlueberryMuffin.jpg'),
+(2, 'Chocolate Chip Muffin', 10, 1.21, 'food', 'images/ChocolateChipMuffin.jpg'),
+(3, 'New York Bagel', 11, 2.3, 'food', 'images/NYBagel.jpg'),
+(4, 'Cinnamon Raisin Bagel', 10, 2.89, 'food', 'images/CINBagel.jpg'),
+(5, 'Raspberry Pastry', 10, 3.79, 'food', 'images/Raspberry.jpg'),
+(6, 'Apple Turnover Pastry', 10, 2.79, 'food', 'images/Apple.jpg'),
+(7, 'Cheese Danish', 10, 2.67, 'food', 'images/CheeseDanish.jpeg'),
+(8, 'Frosted Danish', 3, 2, 'food', 'images/FilledFrostedDanish.jpg'),
+(9, 'Small Fruit Cup', 7, 1.5, 'food', 'images/smallfruitcup.jpg'),
+(10, 'Large Fruit Cup', 9, 2, 'food', 'images/largefruit.jpg'),
+(11, 'Dalgona Coffee', 3, 3.69, 'drink', 'images/Dalgona.jpg'),
+(12, 'Fizzy Strawberry Lemonade', 5, 4.5, 'drink', 'images/StrawberryLemonade.jpg'),
+(13, 'Pumpkin Spice Latte', 5, 4.5, 'drink', 'images/PumpkinSpice.jpg'),
+(14, 'Dark Roast Coffee', 5, 2.5, 'drink', 'images/DarkRoast.jpg'),
+(15, 'Light Roast Coffee', 5, 4.5, 'drink', 'images/LightRoast.jpg'),
+(16, 'Caramel Macchiato', 5, 3.8, 'drink', 'images/CaramelMacchiato.jpg'),
+(17, 'Cafe Latte', 9, 2.25, 'drink', 'images/Latte.jpg');
 
 -- --------------------------------------------------------
 
@@ -88,7 +112,6 @@ CREATE TABLE `users` (
   `username` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `admin` int(1) NOT NULL DEFAULT 0,
-  `address` varchar(256) NOT NULL,
   `phoneNumber` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -96,10 +119,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userID`, `firstName`, `lastName`, `username`, `password`, `admin`, `address`, `phoneNumber`) VALUES
-(1, 'Sarah', 'Greene', 'sgreene', '123', 0, '', ''),
-(2, 'Bob', 'Jones', 'bobjones123', '246', 0, '', ''),
-(3, 'Lily', 'Tea', 'tea111', '111', 0, '', '');
+INSERT INTO `users` (`userID`, `firstName`, `lastName`, `username`, `password`, `admin`, `phoneNumber`) VALUES
+(1, 'Sarah', 'Greene', 'sgreene', '123', 0, ''),
+(2, 'Bob', 'Jones', 'bobjones123', '246', 0, ''),
+(3, 'Lily', 'Tea', 'tea111', '111', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -157,7 +180,7 @@ ALTER TABLE `order_summary`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `promoCode`
