@@ -18,7 +18,7 @@
 		$password = $_POST["password"] ?? '';
 		$check = $_POST["check"] ?? '';
 	} else {
-		include('login_page.html');
+		include('login_page.php');
 	}
 
 	$query = "SELECT * FROM users WHERE username='$uname' AND password='$password'";

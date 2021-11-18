@@ -16,18 +16,18 @@
 			<li><a class="active" href="home_page.php">Home</a></li>
 			<li><a href="drinks_page.php">Drinks</a></li>
 			<li><a href="foods_page.php">Foods</a></li>
-			<li><a href="cart_page.html">Cart</a></li>
+			<li><a href="cart_page.php">Cart</a></li>
 			<li><a href="checkout_page.php">Checkout</a></li>
-			<li><a href="login_page.html">Login</a></li>
+			<li><a href="login_page.php">Login</a></li>
 		</ul>
 	<?php } else { ?>
 		<ul id="navbar_div">
 			<li><a class="active" href="home_page.php">Home</a></li>
 			<li><a href="drinks_page.php">Drinks</a></li>
 			<li><a href="foods_page.php">Foods</a></li>
-			<li><a href="cart_page.html">Cart</a></li>
+			<li><a href="cart_page.php">Cart</a></li>
 			<li><a href="checkout_page.php">Checkout</a></li>
-			<li><a href="login_page.html">Logout</a></li>
+			<li><a href="login_page.php">Logout</a></li>
 		</ul>
 	<?php } ?>
 	<div id='images_div'>

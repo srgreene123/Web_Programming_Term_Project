@@ -32,9 +32,9 @@
 		<li><a href="home_page.php">Home</a></li>
 		<li><a href="drinks_page.php">Drinks</a></li>
         <li><a class="active" href="foods_page.php">Foods</a></li>
-        <li><a href="cart_page.html">Cart</a></li>
+        <li><a href="cart_page.php">Cart</a></li>
 		<li><a href="checkout_page.php">Checkout</a></li>
-		<li><a href="login_page.html">Login</a></li>
+		<li><a href="login_page.php">Login</a></li>
 	</ul>
 	<div class="row">
   <div class="column left">
