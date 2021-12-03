@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2021 at 11:49 PM
+-- Generation Time: Dec 03, 2021 at 11:57 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -120,7 +120,7 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `username`, `password`, 
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cartID`,`orderID`);
+  ADD PRIMARY KEY (`cartID`);
 
 --
 -- Indexes for table `order_summary`
