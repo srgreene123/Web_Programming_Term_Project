@@ -3,13 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2021 at 11:21 PM
+-- Generation Time: Dec 03, 2021 at 11:49 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -45,7 +46,6 @@ CREATE TABLE `order_summary` (
   `paymentStatus` varchar(256) NOT NULL,
   `grandTotal` double NOT NULL,
   `userID` int(11) NOT NULL,
-  `promoCodeID` varchar(11) NOT NULL,
   `address` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -69,35 +69,23 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productID`, `name`, `quantity`, `price`, `type`, `image`) VALUES
-(1, 'Blueberry Muffin', 5, 2.75, 'food', 'images/BlueberryMuffin.jpg'),
-(2, 'Chocolate Chip Muffin', 10, 1.21, 'food', 'images/ChocolateChipMuffin.jpg'),
-(3, 'New York Bagel', 11, 2.3, 'food', 'images/NYBagel.jpg'),
-(4, 'Cinnamon Raisin Bagel', 10, 2.89, 'food', 'images/CINBagel.jpg'),
-(5, 'Raspberry Pastry', 10, 3.79, 'food', 'images/Raspberry.jpg'),
-(6, 'Apple Turnover Pastry', 10, 2.79, 'food', 'images/Apple.jpg'),
-(7, 'Cheese Danish', 10, 2.67, 'food', 'images/CheeseDanish.jpeg'),
-(8, 'Frosted Danish', 3, 2, 'food', 'images/FilledFrostedDanish.jpg'),
-(9, 'Small Fruit Cup', 7, 1.5, 'food', 'images/smallfruitcup.jpg'),
-(10, 'Large Fruit Cup', 9, 2, 'food', 'images/largefruit.jpg'),
-(11, 'Dalgona Coffee', 3, 3.69, 'drink', 'images/Dalgona.jpg'),
-(12, 'Fizzy Strawberry Lemonade', 5, 4.5, 'drink', 'images/StrawberryLemonade.jpg'),
-(13, 'Pumpkin Spice Latte', 5, 4.5, 'drink', 'images/PumpkinSpice.jpg'),
-(14, 'Dark Roast Coffee', 5, 2.5, 'drink', 'images/DarkRoast.jpg'),
-(15, 'Light Roast Coffee', 5, 4.5, 'drink', 'images/LightRoast.jpg'),
-(16, 'Caramel Macchiato', 5, 3.8, 'drink', 'images/CaramelMacchiato.jpg'),
-(17, 'Cafe Latte', 9, 2.25, 'drink', 'images/Latte.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `promoCode`
---
-
-CREATE TABLE `promoCode` (
-  `promoCodeID` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `discount` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(1, 'Blueberry Muffin', 5, 2.75, 'food', 'BlueberryMuffin.jpg'),
+(2, 'Chocolate Chip Muffin', 10, 1.21, 'food', 'ChocolateChipMuffin.jpg'),
+(3, 'New York Bagel', 11, 2.3, 'food', 'NYBagel.jpg'),
+(4, 'Cinnamon Raisin Bagel', 10, 2.89, 'food', 'CINBagel.jpg'),
+(5, 'Raspberry Pastry', 10, 3.79, 'food', 'Raspberry.jpg'),
+(6, 'Apple Turnover Pastry', 10, 2.79, 'food', 'Apple.jpg'),
+(7, 'Cheese Danish', 10, 2.67, 'food', 'CheeseDanish.jpeg'),
+(8, 'Frosted Danish', 3, 2, 'food', 'FilledFrostedDanish.jpg'),
+(9, 'Small Fruit Cup', 7, 1.5, 'food', 'smallfruitcup.jpg'),
+(10, 'Large Fruit Cup', 9, 2, 'food', 'largefruit.jpg'),
+(11, 'Dalgona Coffee', 3, 3.69, 'drink', 'Dalgona.jpg'),
+(12, 'Fizzy Strawberry Lemonade', 5, 4.5, 'drink', 'StrawberryLemonade.jpg'),
+(13, 'Pumpkin Spice Latte', 5, 4.5, 'drink', 'PumpkinSpice.jpg'),
+(14, 'Dark Roast Coffee', 5, 2.5, 'drink', 'DarkRoast.jpg'),
+(15, 'Light Roast Coffee', 5, 4.5, 'drink', 'LightRoast.jpg'),
+(16, 'Caramel Macchiato', 5, 3.8, 'drink', 'CaramelMacchiato.jpg'),
+(17, 'Cafe Latte', 9, 2.25, 'drink', 'Latte.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,19 +127,13 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `order_summary`
   ADD PRIMARY KEY (`orderID`),
-  ADD UNIQUE KEY `userID` (`userID`,`promoCodeID`);
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`productID`);
-
---
--- Indexes for table `promoCode`
---
-ALTER TABLE `promoCode`
-  ADD PRIMARY KEY (`promoCodeID`);
 
 --
 -- Indexes for table `users`
@@ -183,16 +165,20 @@ ALTER TABLE `products`
   MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `promoCode`
---
-ALTER TABLE `promoCode`
-  MODIFY `promoCodeID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order_summary`
+--
+ALTER TABLE `order_summary`
+  ADD CONSTRAINT `order_summary_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
