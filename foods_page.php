@@ -60,8 +60,7 @@ $items = $conn->query($query);
 			</a>
 		</div>
 		<div class="column right" style="background-color:#bbb;">
-			<input type="text" placeholder="Search..">
-			<h2>Our Selection:</h2>
+			<h2>Our Food Selection:</h2>
 			<form action="addToCart.php" method="post">
 				<div class="pics">
 					<?php foreach ($items as $item) { ?>
