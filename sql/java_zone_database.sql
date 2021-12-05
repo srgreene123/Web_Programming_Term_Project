@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2021 at 12:11 AM
+-- Generation Time: Dec 05, 2021 at 09:31 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `cartID` int(11) NOT NULL,
+  `numID` int(11) NOT NULL,
   `orderID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total` double NOT NULL,
@@ -119,7 +119,7 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `username`, `password`, 
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cartID`);
+  ADD PRIMARY KEY (`numID`);
 
 --
 -- Indexes for table `order_summary`
@@ -149,7 +149,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `numID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_summary`
