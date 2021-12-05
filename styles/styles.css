@@ -13,6 +13,15 @@ body {
 	padding-bottom: 100px;
 }
 
+#productBody {
+	padding-bottom: 100px;
+	background-color: #bbb;
+}
+
+#cartBody {
+	padding-bottom: 100px;
+}
+
 #navbar_div {
 	position: fixed;
 	top: 0;
@@ -75,6 +84,8 @@ img {
 	margin-top: 0px;
 	width: 250px;
 	height: 350px;
+	/* width: 100%;
+	height: 400px; */
 }
 
 #images_div {
@@ -133,6 +144,17 @@ input[type=text] {
 	padding: 12px 20px;
 	margin: 8px 0;
 	box-sizing: border-box;
+	border: 2px solid black;
+	border-radius: 4px;
+}
+
+figcaption input[type=number] {
+	padding: 0px 5px;
+	margin: 0px 0px;
+	width: 12%;
+	height: 25px;
+	border: 2px solid black;
+	border-radius: 4px;
 }
 
 .together {
@@ -144,7 +166,8 @@ input[type=text] {
 }
 
 #fulllength input {
-	width: 21.5%;
+	/* width: 21.5%; */
+	width: 406px;
 }
 
 .checkout {
@@ -160,19 +183,19 @@ input[type=text] {
 }
 
 .column .right .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 200px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
+	float: right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 200px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
 
 }
 
- .column .right .search-container {
-  float: right;
+.column .right .search-container {
+	float: right;
 }
 
 #footer {
@@ -185,30 +208,30 @@ input[type=text] {
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* Create two unequal columns that floats next to each other */
 .column {
-  float: left;
-  padding: 10px;
-  background-color: #ffae00;
+	float: left;
+	padding: 10px;
+	background-color: #ffae00;
 }
 
 .left {
-  width: 25%;
-  padding-bottom: 25px;
+	width: 25%;
+	padding-bottom: 25px;
 }
 
 .right {
-  width: 75%;
+	width: 75%;
 }
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+	content: "";
+	display: table;
+	clear: both;
 }
 
 .left h2 {
@@ -221,48 +244,72 @@ input[type=text] {
 	font-size: 200%;
 }
 
-.right input[type=text] {
+/* .right input[type=text] {
   float: right;
   padding: 6px;
   margin-top: 8px;
   margin-right: 16px;
   border: none;
   font-size: 17px;
-}
+} */
 
 
 
 
-.textbox {
+/* .textbox {
   float: left;
   width: 33.33%;
-  display: block;
   margin: auto;
+  border: 1px solid black;
   
-}
+} */
 
 
 
 
-.pics::after {
+/* .pics::after {
   content: "";
   clear: both;
   display: table;
+} */
+
+.pics {
+	display: flex;
+	flex-wrap: wrap;
+	/* align-content: space-around; */
+	justify-content: center;
+	gap: 0px 0px;
 }
+
+.textbox {
+	flex: 0 0 25%;
+	text-align: center;
+	margin: 0px 0px;
+	flex-shrink: 0;
+}
+
+/* figure {
+	border: 1px solid black;
+	padding: 0px 0px;
+	margin: 0px 0px;
+} */
 
 figure figcaption {
-	border: 1px solid black;
+	/* border: 1px solid black; */
+	/* width: 250px; */
 	text-align: center;
+	/* margin-left: 152px; */
 }
 
+
 #demo11 {
-	  padding-bottom: 25px;
+	padding-bottom: 25px;
 }
 
 .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
 .column.left {
@@ -278,30 +325,38 @@ figure figcaption {
 	border: 3px solid black;
 }
 
-figure img{
+figure img {
 	border: 3px dotted orange;
-	margin: auto;
-	display: block;
+	width: 100%;
+	height: 400px;
+	flex-shrink: 0;
 }
 
 /* @media screen and (max-width: 600px) {.column { width: 100%;} } to adjust a minimum size for the foods and drinks. Need to implement */
 
 .loginColumn {
-	float: left;
-	padding: 10px;
 	height: 300px;
+	width: 100%;
+	text-align: center;
 }
 
 .loginLeft {
-	width: 50%;
+	padding-left: 110px;
 }
 
 .loginRight {
-	width: 50%;
+	padding-left: 20px;
 }
 
-.loginRow:after {
+/* .loginRow:after {
 	content: "";
 	display: table;
 	clear: both;
+} */
+
+#flexContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0px 50px;
 }

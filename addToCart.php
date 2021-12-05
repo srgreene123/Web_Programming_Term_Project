@@ -1,4 +1,6 @@
 <?php 
+	include_once('session_header.php'); 
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -13,7 +15,22 @@
 
 	if (isset($_POST["submit"])) {
 	  $productID = $_POST["productToAdd"];
-	  echo $productID;
+	  $quantity = $_POST['quantity'];
+	  $insertProduct = "INSERT INTO cart (orderID, quantity, productID) VALUES ('1', '$quantity', '$productID')";
+	  mysqli_query($conn, $insertProduct);
+
+	  $updateProduct = "UPDATE products SET quantity = quantity - '$quantity' WHERE productID = '$productID'";
+	  mysqli_query($conn, $updateProduct);
+
+	  if (isset($_SESSION['pageID']) && $_SESSION['pageID'] == 1){
+		include('drinks_page.php');
+	  }
+	  elseif (isset($_SESSION['pageID']) && $_SESSION['pageID'] == 2){
+		include('foods_page.php');
+	  }
+	  else {
+		include('cart_page.php');
+	  }
 	} else {
 	  echo 'ERROR';
 	}

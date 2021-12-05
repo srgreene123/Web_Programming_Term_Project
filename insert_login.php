@@ -36,7 +36,7 @@
 	
 	if(mysqli_query($conn, $sql)){
 		echo "Account Succesfully Created!";
-		include('home_page.php');
+		include('login_page.php');
 	}
 	else
 	{

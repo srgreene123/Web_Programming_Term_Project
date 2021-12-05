@@ -1,12 +1,26 @@
-<?php include('session_header.php') ?>
+<?php 
+include('session_header.php');
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "java_zone_database";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body id="checkoutbody">
@@ -22,9 +36,7 @@
                 <li><a href="home_page.php">Home</a></li>
                 <li><a href="drinks_page.php">Drinks</a></li>
                 <li><a href="foods_page.php">Foods</a></li>
-                <li><a href="cart_page.php">Cart</a></li>
-                <li><a href="checkout_page.php">Checkout</a></li>
-                <li><a href="login_page.php">Login</a></li>
+                <li><a href="login_page.php">Login/Register</a></li>
             </ul>
         <?php } else { ?>
             <ul id="navbar_div">
@@ -37,6 +49,8 @@
             </ul>
         <?php }; ?>
         <?php
+        $query = "DELETE FROM cart";
+        mysqli_query($conn, $query);
         session_unset();
         session_destroy();
         ?>

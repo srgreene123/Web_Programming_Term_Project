@@ -3,7 +3,11 @@
     { 
         session_start(); 
     }
+
     if(!isset($_SESSION['loginst'])){
         $_SESSION['loginst'] = 0;
     }
+
+    
+
 ?>

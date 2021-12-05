@@ -1,4 +1,6 @@
 <?php
+	include_once('session_header.php');
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -12,27 +14,26 @@
 	}
 
 	if (isset($_POST["submit"])) {
-	  $card_info = $_POST["card_num"];
-	  $street_name = $_POST["street_name"];
-	  $city = $_POST["city"];
-	  $state = $_POST["state"];
-	  $zipcode = $_POST["zip_code"];
+	  $street_name = $_POST['street_name'];
+	  $city = $_POST['city'];
+	  $state = $_POST['state'];
+	  $zipcode = $_POST['zip_code'];
 	} else {
 	  header("location: checkout_page.html");
 	}
 
-  $full_addr = $street_name . " " . $city . " " . $state . " " . $zipcode;
-  $userID = 4;
+  $full_addr = "$street_name" . ", " . "$city" . ", " . "$state" . " " . "$zipcode";
+  $userID = $_SESSION['userID'] ?? '0';
   $total = 100.91;
-  $promoCode = '0';
 
-  $stmt = $conn->prepare("INSERT into order_summary(address, userID, paymentStatus, grandTotal, promoCodeID) VALUES (?,?,?,?,?)");
-  $stmt->bind_param("sisds", $full_addr, $userID, $card_num, $total, $promoCode);
-  $stmt->execute();
-  $stmt->close();
+  $stmt = "INSERT INTO order_summary (paymentStatus, grandTotal, userID, address) VALUES ('true', '$total', '$userID', '$full_addr')";
+  mysqli_query($conn, $stmt);
+
+  echo $userID;
+  include('home_page.php');
+
 
 
 //header("location: home_page.html");
 
 $conn->close();
-?>
