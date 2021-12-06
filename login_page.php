@@ -37,10 +37,10 @@
                     <h2>Login Information</h2>
 
                     <label for="fname">Username</label><br>
-                    <input type="text" name="uname" id="uname" placeholder="e.g., John"><br>
+                    <input type="text" name="uname" id="uname" placeholder="e.g., John" required><br>
 
                     <label for="lname">Password</label><br>
-                    <input type="password" name="password" id="password" placeholder="e.g., *****"><br>
+                    <input type="password" name="password" id="password" placeholder="e.g., *****" required><br>
 					<label>Show Password</label>
 					<input type="checkbox" onclick="myFunction()"></input><br>
 
@@ -58,28 +58,28 @@
 
                     <div class="together">
                         <label for="REGFIRST">First Name</label><br>
-                        <input type="text" name="REGFIRST" id="REGFIRST" placeholder="e.g., John"><br>
+                        <input type="text" name="REGFIRST" id="REGFIRST" placeholder="e.g., John" required><br>
                     </div>
 
                     <div class="together">
                         <label for="REGLAST">Last Name</label><br>
-                        <input type="text" name="REGLAST" id="REGLAST" placeholder="e.g., ******"><br>
+                        <input type="text" name="REGLAST" id="REGLAST" placeholder="e.g., Smith" required><br>
                     </div><br>
 
                     <div id="fulllength" class="clear">
                         <label for="phone"> Phone Number </label><br>
-                        <input type="text" name="phone" id="phone" pattern="(?=.*\d).{10}" placeholder="e.g., XXXXXXXXXX" title="Enter a valid phone number"><br>
+                        <input type="text" name="phone" id="phone" pattern="(?=.*\d).{10}" placeholder="e.g., XXXXXXXXXX" title="Enter a valid phone number" required><br>
                     </div>
 
                     <div class="together">
                         <label for="user">Username</label><br>
-                        <input type="text" name="user" id="user" placeholder="e.g., JohnC3"><br>
+                        <input type="text" name="user" id="user" placeholder="e.g., JohnC3" required><br>
                     </div>
 
                     <div class="together">
                         <label for="pswd">Password</label><br>
                         <input type="password" name="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" id="pswd" placeholder="e.g., *****" title="Password must include the following:
-				minimum of 5 characters, at least one uppercase letter, at least one lowercase letter, at least one number"><br>
+				minimum of 5 characters, at least one uppercase letter, at least one lowercase letter, at least one number" required><br>
                     </div><br>
 					<label>Show Password</label>
 					<input type="checkbox" onclick="myFunction2()"></input><br>
