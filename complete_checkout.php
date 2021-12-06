@@ -29,7 +29,7 @@
   $stmt = "INSERT INTO order_summary (paymentStatus, grandTotal, userID, address) VALUES ('true', '$total', '$userID', '$full_addr')";
   mysqli_query($conn, $stmt);
 
-  echo $userID;
+//   echo $userID;
   include('home_page.php');
 
 
