@@ -20,7 +20,6 @@
 	//-Added insert_login.php to add users
 	//-Added 
 
-	$loginst = 1;
 	
 	if (isset($_POST["REGsubmit"])) {
 		$user = $_POST["user"] ?? '';
@@ -31,19 +30,33 @@
 	} else {
 		include('login_page.php');
 	}
-
-	$sql = "INSERT INTO users (firstName, lastName, username, password, phoneNumber) VALUES ('$REGFIRST', '$REGLAST', '$user', '$pswd', '$phone')";
-	
-	if(mysqli_query($conn, $sql)){
-		echo "Account Succesfully Created!";
+	/*
+	if(strlen($pswd) < 5 ) 
+	{
+		echo "Password is less than 5 characters";
 		include('login_page.php');
+	}
+	*/
+	
+	if(!empty($_POST["REGFIRRST"]) or !empty($_POST["REGLAST"]) or !empty($_POST["phone"]) or !empty($_POST["pswd"]) or !empty($_POST["user"]))
+	{
+		$sql = "INSERT INTO users (firstName, lastName, username, password, phoneNumber) VALUES ('$REGFIRST', '$REGLAST', '$user', '$pswd', '$phone')";
+		
+		if(mysqli_query($conn, $sql)){
+			echo "Account Succesfully Created!";
+			include('login_page.php');
+			}
+			else
+			{
+				echo "ERROR: Duplicate username";
+				include('login_page.php');
+			}
 	}
 	else
 	{
-		echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+		echo "Please fill in the required fields before signing up";
 		include('login_page.php');
 	}
-
 
 	$conn->close();
 ?>

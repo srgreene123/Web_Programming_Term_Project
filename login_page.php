@@ -40,7 +40,9 @@
                     <input type="text" name="uname" id="uname" placeholder="e.g., John"><br>
 
                     <label for="lname">Password</label><br>
-                    <input type="text" name="password" id="password" placeholder="e.g., ****"><br>
+                    <input type="password" name="password" id="password" placeholder="e.g., *****"><br>
+					<label>Show Password</label>
+					<input type="checkbox" onclick="myFunction()"></input><br>
 
                     <label>Remember Me</label>
                     <input type="checkbox" value="1" name="check"></input>
@@ -66,7 +68,7 @@
 
                     <div id="fulllength" class="clear">
                         <label for="phone"> Phone Number </label><br>
-                        <input type="text" name="phone" id="phone" placeholder="e.g., XXX-XXX-XXXX"><br>
+                        <input type="text" name="phone" id="phone" pattern="(?=.*\d).{10}" placeholder="e.g., XXXXXXXXXX" title="Enter a valid phone number"><br>
                     </div>
 
                     <div class="together">
@@ -76,8 +78,11 @@
 
                     <div class="together">
                         <label for="pswd">Password</label><br>
-                        <input type="text" name="pswd" id="pswd" placeholder="e.g., ****"><br>
+                        <input type="password" name="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" id="pswd" placeholder="e.g., *****" title="Password must include the following:
+				minimum of 5 characters, at least one uppercase letter, at least one lowercase letter, at least one number"><br>
                     </div><br>
+					<label>Show Password</label>
+					<input type="checkbox" onclick="myFunction2()"></input><br>
 
                     <button class="checkout" name="REGsubmit" type="submit">Sign Up!</button>
                 </div>
@@ -89,6 +94,8 @@
     <footer id="footer">
         <p>&copy; Java Zone Shop</p>
     </footer>
+	
+	<script src="myScript.js"></script>
 </body>
 
 </html>
