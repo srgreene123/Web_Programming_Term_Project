@@ -40,7 +40,11 @@
 	
 	if(!empty($_POST["REGFIRRST"]) or !empty($_POST["REGLAST"]) or !empty($_POST["phone"]) or !empty($_POST["pswd"]) or !empty($_POST["user"]))
 	{
-		$sql = "INSERT INTO users (firstName, lastName, username, password, phoneNumber) VALUES ('$REGFIRST', '$REGLAST', '$user', '$pswd', '$phone')";
+		$salted = "1444asajkasdlf".$pswd."42kldkfa43";
+		
+		$hashed = hash('sha512', $pswd);
+		
+		$sql = "INSERT INTO users (firstName, lastName, username, password, phoneNumber) VALUES ('$REGFIRST', '$REGLAST', '$user', '$hashed', '$phone')";
 		
 		if(mysqli_query($conn, $sql)){
 			echo "Account Succesfully Created!";

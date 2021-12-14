@@ -23,15 +23,19 @@
 	} else {
 		include('login_page.php');
 	}
+	
+	$salted = "1444asajkasdlf".$password."42kldkfa43";
+		
+	$hashed = hash('sha512', $password);
 
-	$query = "SELECT * FROM users WHERE username='$uname' AND password='$password'";
+	$query = "SELECT * FROM users WHERE username='$uname' AND password='$hashed'";
 	$data = $conn->query($query);
 
 
 	$query3 = "SELECT products.name, cart.quantity, cart.productID, products.price FROM cart JOIN products ON cart.productID = products.productID";
 	$cartItems = $conn->query($query3);
 
-	$query2 = "SELECT userID FROM users WHERE username='$uname' AND password='$password'";
+	$query2 = "SELECT userID FROM users WHERE username='$uname' AND password='$hashed'";
 	mysqli_query($conn, $query2);
 
 
