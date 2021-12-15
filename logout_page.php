@@ -1,6 +1,10 @@
 <?php 
 include('session_header.php');
 
+if ($_SESSION['loginst'] == 0) {
+    header("Location: login_page.php");
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";

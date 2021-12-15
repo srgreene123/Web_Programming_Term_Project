@@ -1,4 +1,12 @@
-<?php include_once('session_header.php'); ?>
+<?php
+
+include_once('session_header.php'); 
+
+if ($_SESSION['loginst'] == 0) {
+    header("Location: login_page.php");
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
