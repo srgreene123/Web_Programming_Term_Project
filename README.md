@@ -18,6 +18,7 @@ STEPS TO RUN OUR FORMS
 3. Start MySQL and Apache Web Server
 4. Run SQL script (java_zone_database.sql)
 5. go to localhost/(folderName)/home_page.php
-6. You are now at our website!
+      a. home_page.php is our entry point to this project
+7. You are now at our website!
 
 Github: https://github.com/srgreene123/Web_Programming_Term_Project
